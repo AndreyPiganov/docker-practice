@@ -1,12 +1,13 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "plugins": ["react", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "prettier"
-  ], "env": {
+  ],
+  "env": {
     "browser": true,
     "node": true
   },
