@@ -15,10 +15,8 @@ const UserComponent = () => {
   const fetchUsers = async () => {
     try {
       const response = await axios.get('http://localhost:5000/');
-      console.log(response.data);
       setUsers(response.data);
     } catch (error) {
-      console.error('Error fetching users:', error);
       setError('Ошибка получения пользователей');
     }
   };
@@ -30,13 +28,11 @@ const UserComponent = () => {
         name,
         password,
       });
-      console.log(response.data)
       setUsers([...users, response.data]);
       setName('');
       setPassword('');
       setError('');
     } catch (error) {
-      console.error('Error registering user:', error);
       setError('Ошибка регистрации');
     }
   };
@@ -54,7 +50,6 @@ const UserComponent = () => {
       setNewName('');
       setError('');
     } catch (error) {
-      console.error('Error updating user:', error);
       setError('Ошибка при изменении имени');
     }
   };
@@ -66,7 +61,6 @@ const UserComponent = () => {
       setUsers(filteredUsers);
       setError('');
     } catch (error) {
-      console.error('Error deleting user:', error);
       setError('Ошибка при удалении пользователя');
     }
   };

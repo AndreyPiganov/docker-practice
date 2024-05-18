@@ -1,5 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App'; // замените на путь к вашему основному компоненту приложения
+import ReactDOM from 'react-dom/client';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<App />);
