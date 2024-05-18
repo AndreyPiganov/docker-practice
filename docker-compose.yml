@@ -1,0 +1,13 @@
+version: '3'
+services:
+  postgres_users:
+    image: postgres:16-alpine
+    container_name: users
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=users
+    ports:
+      - '5430:5432'
+    volumes:
+      - ./db-volumes/database/users_mobile:/var/lib/postgresql/data
