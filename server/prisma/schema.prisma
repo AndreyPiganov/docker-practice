@@ -9,6 +9,7 @@ datasource db {
 
 model users {
   id                    Int              @id @default(autoincrement())
+  user_uid              String           @db.VarChar @unique
   name                  String           @db.VarChar
   password              String           @db.VarChar
 }

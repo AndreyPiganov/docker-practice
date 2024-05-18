@@ -10,4 +10,38 @@ services:
     ports:
       - '5430:5432'
     volumes:
-      - ./db-volumes/database/users_mobile:/var/lib/postgresql/data
+      - ./db-volumes/database/server:/var/lib/postgresql/data
+  server:
+    container_name: server
+    restart: always
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    expose:
+      - '5000'
+    ports:
+      - '127.0.0.1:5000:5000'
+    volumes:
+      - ./server:/app
+    environment:
+      - PORT=5000
+      - DATABASE_URL=postgresql://root:root@users:5432/users?schema=public
+    depends_on:
+      - postgres_users
+  client:
+    container_name: client
+    restart: always
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    expose:
+      - '3000'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./client:/app
+    environment:
+      - PORT=3000
+    depends_on:
+      - postgres_users
+      - server
