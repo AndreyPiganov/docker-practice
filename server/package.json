@@ -9,7 +9,7 @@
     "start": "node build/main.js",
     "build": "tsc",
     "migration": "npx prisma migrate dev --create-only",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "nodemonConfig": {
     "watch": [
